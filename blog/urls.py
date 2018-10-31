@@ -14,6 +14,7 @@ from . import views
 urlpatterns = [
 	# PopstListView 需要找url： <app>/<model>_<viewtype>.html	
 	url(r'^$', PostListView.as_view(), name='blog-home'), 
+	# 某个用户的展示页面
 	url(r'^user/(?P<username>[-\w]+)$', UserPostListView.as_view(), name='user-posts'),
 	# 然后创建DetailView url，带参数id
 	url(r'^post/(?P<pk>\d+)$', PostDetailView.as_view(), name='post-detail'), 
