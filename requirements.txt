@@ -12,4 +12,3 @@ gunicorn==19.9.0
 pyparsing==2.0.1
 python-dateutil==1.5
 pytz==2018.5
-scipy==0.13.0
