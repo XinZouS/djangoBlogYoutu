@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -144,7 +143,8 @@ DATABASES['default'].update(db_from_env)
 
 # Activate Django-Heroku.
 # ref: https://devcenter.heroku.com/articles/django-app-configuration
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())
 
 # ref: https://medium.com/@_christopher/how-to-send-emails-with-python-django-through-google-smtp-server-for-free-22ea6ea0fb8e
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
