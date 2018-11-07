@@ -26,7 +26,7 @@ SECRET_KEY = '1c!wsf5v7xh5)!a1di$nq@2etwgagfox4gygzxoumxo0eewr(o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'pacific-castle-92803.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'pacific-castle-92803.herokuapp.com']
 
 
 # Application definition
