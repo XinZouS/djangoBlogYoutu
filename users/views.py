@@ -5,11 +5,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
-def register(request):
+def register(request, *args, **kwargs):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)
 		if form.is_valid():
-			form.save()
+			form.save(*args, **kwargs)
 			username = form.cleaned_data.get('username')
 			messages.success(request, 'Hi %s, your account has been created! Now you can login.' % username)
 			return redirect('login')
