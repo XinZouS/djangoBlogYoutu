@@ -26,7 +26,7 @@ SECRET_KEY = '1c!wsf5v7xh5)!a1di$nq@2etwgagfox4gygzxoumxo0eewr(o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'pacific-castle-92803.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', '34.205.17.166', 'pacific-castle-92803.herokuapp.com']
 
 
 # Application definition
@@ -126,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -137,9 +137,9 @@ LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 
 # ref: https://www.youtube.com/watch?v=lN9-aUpj588
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+#import dj_database_url
+#db_from_env = dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
 
 # Activate Django-Heroku.
 # ref: https://devcenter.heroku.com/articles/django-app-configuration
