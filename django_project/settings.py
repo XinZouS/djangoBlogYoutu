@@ -77,16 +77,28 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'ddts2dfe0dgj9b', #os.path.join(BASE_DIR, 'db.sqlite3'),
-        'HOST': 'ec2-54-243-61-194.compute-1.amazonaws.com',
-        'USER': 'kmvpwjnqwepprh',
-        'PASSWORD': 'b5a9c8902a8fbf0bbfd21c60890854f929b3f8b734399838a9a83ea4290a0909',
-        'PORT': '5432',
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'ddts2dfe0dgj9b', #os.path.join(BASE_DIR, 'db.sqlite3'),
+            'HOST': 'ec2-54-243-61-194.compute-1.amazonaws.com',
+            'USER': 'kmvpwjnqwepprh',
+            'PASSWORD': 'b5a9c8902a8fbf0bbfd21c60890854f929b3f8b734399838a9a83ea4290a0909',
+            'PORT': '5432',
+        }
+    }
 
 
 # Password validation
