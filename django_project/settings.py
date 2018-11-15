@@ -75,9 +75,10 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-rds.html#python-rds-connect
 if 'RDS_HOSTNAME' in os.environ:
+    print("get RDS_HOSTNAME = ", os.environ['RDS_HOSTNAME'], "using: ")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -88,16 +89,28 @@ if 'RDS_HOSTNAME' in os.environ:
             'PORT': os.environ['RDS_PORT'],
         }
     }
-"""
 else:
-
+# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+    print("use LOCALHOST mysql: " )
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql', #'django.db.backends.sqlite3',
+            'NAME': 'localdb', #os.path.join(BASE_DIR, 'db.sqlite3'),
+            'USER': 'root',
+            'PASSWORD': 'BXY5201314',
+            'HOST': 'localhost', #'127.0.0.1',
+            'PORT': '3306',
+        }
+    }
+    print(DATABASES)
+"""
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'ddts2dfe0dgj9b', #os.path.join(BASE_DIR, 'db.sqlite3'),
-            'HOST': 'ec2-54-243-61-194.compute-1.amazonaws.com',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
             'USER': 'kmvpwjnqwepprh',
             'PASSWORD': 'b5a9c8902a8fbf0bbfd21c60890854f929b3f8b734399838a9a83ea4290a0909',
+            'HOST': 'ec2-54-243-61-194.compute-1.amazonaws.com',
             'PORT': '5432',
         }
     }
