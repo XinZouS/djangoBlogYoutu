@@ -77,18 +77,19 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 
 # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-rds.html#python-rds-connect
-if 'RDS_HOSTNAME' in os.environ:
-    print("get RDS_HOSTNAME = ", os.environ['RDS_HOSTNAME'], "using: ")
+# if 'RDS_HOSTNAME' in os.environ:
+    # print("get RDS_HOSTNAME = %s, %s" % (os.environ['RDS_HOSTNAME'], "using: "))
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
+            'NAME': 'ebdb', #os.environ['RDS_DB_NAME'],
+            'USER': 'admin', #os.environ['RDS_USERNAME'],
+            'PASSWORD': 'BXY5201314', #os.environ['RDS_PASSWORD'],
+            'HOST': 'aa626k2y7e4zh5.clx727wyrnc4.us-east-1.rds.amazonaws.com', #os.environ['RDS_HOSTNAME'],
+            'PORT': '3306', #os.environ['RDS_PORT'],
         }
     }
+"""
 else:
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
     print("use LOCALHOST mysql: " )
@@ -102,6 +103,7 @@ else:
             'PORT': '3306',
         }
     }
+"""
     print(DATABASES)
 """
     DATABASES = {
