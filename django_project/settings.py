@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-rds.html#python-rds-connect
 if True: #'RDS_HOSTNAME' in os.environ:
-    print("get RDS_HOSTNAME = %s, %s" % (os.environ['RDS_HOSTNAME'], "using: "))
+    # print("get RDS_HOSTNAME = %s, %s" % (os.environ['RDS_HOSTNAME'], "using: "))
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -104,7 +104,7 @@ else:
         }
     }
 """
-    print(DATABASES)
+    # print(DATABASES)
 """
     DATABASES = {
         'default': {
