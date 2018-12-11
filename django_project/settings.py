@@ -85,7 +85,7 @@ if True: #'RDS_HOSTNAME' in os.environ:
             'NAME': 'ebdb', #os.environ['RDS_DB_NAME'],
             'USER': 'admin', #os.environ['RDS_USERNAME'],
             'PASSWORD': 'BXY5201314', #os.environ['RDS_PASSWORD'],
-            'HOST': 'aa626k2y7e4zh5.clx727wyrnc4.us-east-1.rds.amazonaws.com', #os.environ['RDS_HOSTNAME'],
+            'HOST': 'ebdb.clx727wyrnc4.us-east-1.rds.amazonaws.com', #os.environ['RDS_HOSTNAME'],
             'PORT': '3306', #os.environ['RDS_PORT'],
         }
     }
